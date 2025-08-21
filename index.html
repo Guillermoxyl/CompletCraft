@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CompletCraft™ — Blindaje Total para tu cuenta de Minecraft</title>
+  <meta name="description" content="Blindá tu cuenta de Minecraft en 30 minutos. Guía visual + checklist imprimible + videos + asistentes IA 24/7. Shield Score™ 90+ garantizado o te devolvemos el dinero." />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #121821;
+      --muted: #98a2b3;
+      --text: #e6edf3;
+      --primary: #4ade80; /* verde */
+      --accent: #60a5fa;  /* azul */
+      --danger: #f43f5e;  /* rojo */
+      --warning: #f59e0b; /* amarillo */
+      --shadow: 0 10px 25px rgba(0,0,0,0.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(11,15,20,0.65); border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight: 800; letter-spacing: 0.3px; }
+    .brand img { height: 28px; width: auto; display:block; }
+    .badge { font-size: 12px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; color: var(--muted); }
+    .nav a { padding: 8px 12px; border-radius: 10px; opacity: 0.9; }
+    .nav a:hover { background: rgba(255,255,255,0.06); opacity: 1; }
+
+    .hero { padding: 64px 0 24px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; }
+    .h1 { font-size: clamp(28px, 4vw, 46px); line-height: 1.08; margin: 0 0 12px; }
+    .lead { color: var(--muted); font-size: clamp(16px, 2.4vw, 18px); }
+    .cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+    .btn { padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); color: var(--text); font-weight: 700; cursor: pointer; transition: transform .05s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: linear-gradient(180deg, rgba(74,222,128,0.35), rgba(74,222,128,0.15)); border-color: rgba(74,222,128,0.5); }
+    .btn.ghost { background: transparent; }
+
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card.pad { padding: 22px; }
+
+    .proofbar { margin-top: 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .proofbar .chip { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 10px 12px; border-radius: 12px; text-align: center; font-size: 14px; color: var(--muted); }
+    .proofbar strong { color: var(--text); }
+
+    .illus { width: 100%; aspect-ratio: 4/3; border: 1px dashed rgba(255,255,255,0.14); border-radius: var(--radius); overflow:hidden; }
+    .illus img { width:100%; height:100%; object-fit: cover; display:block; }
+
+    section { padding: 48px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    h2 { margin: 0 0 8px; font-size: clamp(22px, 3.4vw, 32px); }
+    p { color: var(--muted); line-height: 1.6; }
+
+    .feature { display: grid; gap: 8px; padding: 16px; }
+    .feature .icon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,0.08); margin-bottom: 6px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .step { padding: 18px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+    .step .num { font-weight: 900; color: var(--accent); font-size: 14px; letter-spacing: 1px; }
+
+    .guarantee { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; align-items: center; }
+    .guarantee .seal { display: grid; place-items: center; padding: 24px; }
+    .seal-badge { width: 120px; height: 120px; border-radius: 999px; border: 3px solid var(--primary); display: grid; place-items: center; font-weight: 900; color: var(--primary); text-align:center; line-height:1.1; }
+    .list { margin: 12px 0 0 0; padding: 0; list-style: none; }
+    .list li { margin-bottom: 8px; display: flex; gap: 10px; align-items: center; }
+    .check { width: 18px; height: 18px; border-radius: 4px; background: var(--primary); display: inline-block; flex:none; }
+
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .price-card { padding: 22px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(96,165,250,0.12), rgba(255,255,255,0.02)); position: relative; overflow:hidden; }
+    .price-card.pop { background: linear-gradient(180deg, rgba(74,222,128,0.16), rgba(255,255,255,0.02)); border-color: rgba(74,222,128,0.45); transform: translateY(-4px); }
+    .price-title { font-weight: 800; font-size: 18px; display:flex; align-items:center; gap:8px; }
+    .price { font-size: 34px; font-weight: 900; margin: 8px 0 6px; }
+    .small { font-size: 12px; color: var(--muted); }
+    .countdown { font-weight: 800; font-size: 14px; color: var(--warning); }
+    .countdown.small { font-size: 13px; opacity: 0.9; }
+
+    .soon { opacity: 0.7; }
+    .blurwrap { filter: blur(3px); pointer-events: none; user-select: none; }
+
+    .faq { display: grid; gap: 10px; }
+    .faq details { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px 16px; }
+    .faq summary { cursor: pointer; font-weight: 700; }
+
+    .testimonial .shot { width:100%; height:auto; border-radius: 12px; border:1px solid rgba(255,255,255,0.1); margin-top:8px; }
+
+    /* Exit-intent modal */
+    .modal.hidden { display: none; }
+    .modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+    .modal .backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .modal .content { position: relative; max-width: 560px; width: 92%; background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .modal h3 { margin: 0 0 8px; font-size: 22px; }
+    .modal p { margin: 0 0 14px; }
+    .modal .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    footer { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--muted); }
+    .footgrid { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; }
+    .footlinks a { margin-left: 14px; color: var(--muted); }
+    .tag { color: var(--warning); font-weight: 800; }
+    @media (max-width: 900px) {
+      .hero .wrap, .guarantee, .grid-3, .grid-2, .pricing, .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="https://imgur.com/AksrwdH.png" alt="eqstore logo" />
+        <span>CompletCraft™</span>
+        <span class="badge">Blindaje Total</span>
+      </div>
+      <nav>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#garantia">Garantía</a>
+        <a href="#precios">Precios</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <h1 class="h1">CompleteCraft AI™ — Asistente 24/7 para blindar tu cuenta de Minecraft</h1>
+          <p class="lead">Un <strong>asistente IA personal</strong> que te guía por <strong>todas las configuraciones críticas</strong> de tu cuenta de Microsoft para Minecraft y <strong>se adapta</strong> a tu nivel y a tu dispositivo. Ejecutás pasos simples, validás en vivo y llegás a <strong>90+ de seguridad (Shield Score™)</strong> sin complicarte.</p>
+          <div class="cta">
+            <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Entrar al Asistente</a>
+            <a class="btn ghost" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+          <div class="proofbar">
+            <div class="chip"><strong>No compartís contraseñas ni datos sensibles</strong></div>
+            <div class="chip">Cuentas blindadas: <strong>973+</strong></div>
+            <div class="chip">Tiempo medio: <strong>23 min</strong></div>
+          </div>
+        </div>
+        <div class="illus panel"><img src="https://imgur.com/nt474MH.png" alt="Vista previa / demo" /></div>
+      </div>
+    </section>
+
+    <section id="que-llevas">
+      <div class="container">
+        <div class="kicker">Qué te llevás</div>
+        <h2>Todo lo que necesitás para quedar 100% protegido</h2>
+        <div class="grid-3">
+  <!-- 1 -->
+  <div class="card pad feature">
+    <div class="icon">🤖</div>
+    <strong>Asistentes IA 24/7 <span class="badge">IA Inside</span></strong>
+    <p>Copiloto en tiempo real: detecta tu estado, arma tu plan y explica según tu nivel.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="card pad feature">
+    <div class="icon">🔐</div>
+    <strong>Generador Blindado (contraseñas + nombre único) <span class="badge">IA</span></strong>
+    <p>Crea contraseñas ultra seguras y propone un nickname exclusivo en 1 clic.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="card pad feature">
+    <div class="icon">✅</div>
+    <strong>Checklist inteligente + hoja imprimible <span class="badge">IA</span></strong>
+    <p>Plan personalizado y hoja para ver qué falta y qué ya aseguraste.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="card pad feature">
+    <div class="icon">🛡️</div>
+    <strong>Shield Score™ + Certificado</strong>
+    <p>Puntaje 0–100; con 90+ descargás certificado y rol “Cuenta Blindada 90+”.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="card pad feature">
+    <div class="icon">🧭</div>
+    <strong>Guía visual interactiva</strong>
+    <p>Paso a paso claro y actualizado al último momento.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="card pad feature">
+    <div class="icon">🎥</div>
+    <strong>Entrenamientos en video</strong>
+    <p>Modo Exprés 10’ y Completo para aprender a tu ritmo.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="card pad feature">
+    <div class="icon">🚨</div>
+    <strong>Kit de emergencia — IA en tiempo real <span class="badge">IA</span></strong>
+    <p>Si estás por ser hackeado o ves tu cuenta vulnerable, avisale a la IA y te guía en tiempo real con pasos urgentes, prioridades y plantillas.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="card pad feature">
+    <div class="icon">♻️</div>
+    <strong>Actualizaciones de por vida</strong>
+    <p>La IA, las guías y el checklist se mantienen siempre al día con cambios de Microsoft / Minecraft Premium.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="card pad feature">
+    <div class="icon">💬</div>
+    <strong>Soporte priorizado 24/7 en Discord</strong>
+    <p>Ayuda directa cuando la necesitás, sin compartir datos sensibles.</p>
+  </div>
+</div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="container">
+        <div class="kicker">Cómo funciona</div>
+        <h2>Blindaje en 3 pasos con IA</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <strong>Detectar tu estado (2 min)</strong>
+            <p>Evalúa tu estado actual (2FA, correo, sesiones y dispositivos) y crea un plan <strong>personalizado</strong>.</p>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <strong>Ejecutar con IA</strong>
+            <p>Ejecutas directamente los pasos necesarios para proteger tu cuenta desde el minuto 1, con instrucciones claras.</p>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <strong>Validar y certificar</strong>
+            <p>Una vez validado, vas a recibir un checklist completo, tu <strong>Shield Score™</strong> (qué tan alta es tu protección ahora), el <strong>rol “Cuenta Blindada 90+”</strong> en nuestro Discord y acceso a <strong>soporte 24/7</strong> con un humano real además de la IA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="garantia">
+      <div class="container guarantee">
+        <div>
+          <div class="kicker">Garantía Blindaje Total</div>
+          <h2>Shield Score™ garantizado o 100% reembolso</h2>
+          <ul class="list">
+            <li><span class="check"></span><div><strong>30 días</strong> sin preguntas.</div></li>
+            <li><span class="check"></span><div><strong>Condición:</strong> completar checklist y mostrar tu <strong>Shield Score™</strong>. Reembolso por el mismo método.</div></li>
+            <li><span class="check"></span><div><strong>Prevención, no recuperación:</strong> no recupera cuentas robadas.</div></li>
+          </ul>
+          <div class="cta">
+            <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Comprar ahora</a>
+            <a class="btn ghost" href="#faq">Ver condiciones</a>
+          </div>
+        </div>
+        <div class="seal">
+          <div class="seal-badge"><div>100%<br/>Garantía</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios">
+      <div class="container">
+        <div class="kicker">Precios</div>
+        <h2>Elegí tu plan</h2>
+        <div class="pricing">
+          <!-- BASIC (Próximamente, blureado, sin botón) -->
+          <div class="price-card soon">
+            <div class="price-title">BASIC <span class="badge">PRÓXIMAMENTE</span></div>
+            <div class="price">$</div>
+            <div class="small">Ideal si querés empezar.</div>
+            <div class="blurwrap">
+              <ul class="list" style="margin-top:10px">
+                <li><span class="check"></span><div>Guía visual + Checklist</div></li>
+                <li><span class="check"></span><div>Videoguía 12–15 min</div></li>
+                <li><span class="check"></span><div>Actualizaciones 12 meses</div></li>
+                <li><span class="check"></span><div>Mini-guía anti-phishing</div></li>
+                <li><span class="check"></span><div>Acceso a Discord básico</div></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- PRO (CompletCraft™ $27 con countdown a próximo jueves) -->
+          <div class="price-card pop">
+            <div class="price-title">CompleteCraft AI™ <span class="badge">Recomendado</span></div>
+            <div class="price">$27</div>
+            <div class="countdown" id="countdownMain">Oferta termina el próximo jueves y pasa a $49 en —</div>
+            <div class="small">La experiencia completa. Incluye todo lo necesario para blindarte hoy.</div>
+            <ul class="list" style="margin-top:10px">
+              <li><span class="check"></span><div>Guía visual interactiva (actualizada al último momento)</div></li>
+              <li><span class="check"></span><div>2 entrenamientos en video (Modo completo + Exprés 10’)</div></li>
+              <li><span class="check"></span><div>Asistentes IA 24/7: protección, contraseñas blindadas y nombres únicos</div></li>
+              <li><span class="check"></span><div>Checklist imprimible + planilla familiar de datos actualizados</div></li>
+              <li><span class="check"></span><div>Shield Score™ 0–100 (90 o más = certificado + rol Discord “Cuenta Blindada 90+”)</div></li>
+              <li><span class="check"></span><div>Kit de emergencia: plantillas + pasos exactos de recuperación</div></li>
+              <li><span class="check"></span><div>Mini-guía anti-phishing (1 página, imprimible)</div></li>
+              <li><span class="check"></span><div>Soporte priorizado 24/7 (SLA)</div></li>
+              <li><span class="check"></span><div>Actualizaciones por 12 meses</div></li>
+            </ul>
+            <div class="cta" style="margin-top:12px"><a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Comprar CompletCraft™</a></div>
+          </div>
+
+          <!-- FAMILY (Próximamente, blureado, sin botón) -->
+          <div class="price-card soon">
+            <div class="price-title">FAMILY <span class="badge">PRÓXIMAMENTE</span></div>
+            <div class="price">$</div>
+            <div class="small">Hasta 2 integrantes adicionales.</div>
+            <div class="blurwrap">
+              <ul class="list" style="margin-top:10px">
+                <li><span class="check"></span><div>Todo en CompletCraft™</div></li>
+                <li><span class="check"></span><div>Certificado individual por integrante</div></li>
+                <li><span class="check"></span><div>Planilla imprimible familiar</div></li>
+                <li><span class="check"></span><div>Soporte priorizado familiar</div></li>
+                <li><span class="check"></span><div>Actualizaciones 12 meses</div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios">
+      <div class="container">
+        <h2>Lo que dicen los jugadores</h2>
+        <div class="grid-3">
+          <div class="card pad testimonial">
+            <strong>@Jose23.10</strong> <span class="small">(usuario de Discord)</span>
+            <p>“Hice el modo exprés y en 15 min ya tenía 2FA y todo verde. Tremendo.”</p>
+            <img class="shot" src="https://imgur.com/tcATg3V.png" alt="@Jose23.10" />
+          </div>
+          <div class="card pad testimonial">
+            <strong>@the_morsilla01</strong> <span class="small">(usuario de Discord)</span>
+            <p>“El certificado y el rol en Discord son la frutilla del postre. Cero estrés.”</p>
+            <img class="shot" src="https://imgur.com/Bsd0ZQ8.png" alt="@the_morsilla01" />
+          </div>
+          <div class="card pad testimonial">
+            <strong>@nanii.xit</strong> <span class="small">(usuario de Discord)</span>
+            <p>“Mucho mejor que buscar videos sueltos. Todo claro y actualizado.”</p>
+            <img class="shot" src="https://imgur.com/BycLxca.png" alt="@nanii.xit" />
+          </div>
+          <div class="card pad testimonial">
+            <strong>@mc.eyes</strong> <span class="small">(usuario de Discord)</span>
+            <p>funcionando todo perfecto, bien protegido. ahora a jugar tranquilo :D</p>
+            <img class="shot" src="https://imgur.com/46LvOOm.png" alt="@mc.eyes" />
+          </div>
+          <div class="card pad testimonial">
+            <strong>@valen_god</strong> <span class="small">(usuario de Discord)</span>
+            <p>Lo estuve probando y eh implementado la mayoria de cosas y la verdad que todo excelente. 10/10</p>
+            <img class="shot" src="https://imgur.com/q9VSCgw.png" alt="@valen_god" />
+          </div>
+          <div class="card pad testimonial">
+            <strong>@geroo1405</strong> <span class="small">(usuario de Discord)</span>
+            <p>por ahora todo perfecto, muy buena atención y muy bien protegida... vuelvo en 3 meses a actualizar</p>
+            <img class="shot" src="https://imgur.com/oD0pisU.png" alt="@geroo1405" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="kicker">FAQ</div>
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq">
+          <details>
+            <summary>¿Necesitan mi contraseña?</summary>
+            <p>No. <strong>No compartís contraseñas ni datos sensibles</strong>. Vos ejecutás los cambios; el asistente te guía.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tardo en quedar protegido?</summary>
+            <p>Con el Modo Exprés, podés quedar protegido en 10–30 minutos, dependiendo de tu configuración actual.</p>
+          </details>
+          <details>
+            <summary>¿Qué es el Shield Score™?</summary>
+            <p>Es un puntaje 0–100 basado en tu checklist. Con 90 o más tenés certificado y rol “Cuenta Blindada 90+”.</p>
+          </details>
+          <details>
+            <summary>¿Cómo funciona la garantía y el reembolso?</summary>
+            <p>Tenés 30 días “sin preguntas”. Condiciones completas en esta misma página.</p>
+          </details>
+          <details>
+            <summary>¿Puedo usarlo con mi familia?</summary>
+            <p>Sí. El plan Family cubre hasta 2 integrantes adicionales, con planilla imprimible para mantener datos actualizados.</p>
+          </details>
+
+          <!-- Nuevas preguntas agregadas (con asistentes, no bots) -->
+          <details>
+            <summary>¿Necesito saber de seguridad?</summary>
+            <p>No. CompletCraft™ está pensado para que cualquiera lo haga: comprás, seguís una videoguía de 12–15 min paso a paso, y al final validás con la checklist y el asistente. Sin tecnicismos ni configuraciones raras.</p>
+          </details>
+          <details>
+            <summary>¿Java o Bedrock?</summary>
+            <p>Protegés tu cuenta Microsoft, que es la que da acceso a Minecraft Java y Bedrock (y a cualquier juego vinculado). Al blindarla, reducís al mínimo el riesgo de robo de datos, juegos o acceso.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tarda?</summary>
+            <p>12–15 minutos en el 80% de los casos. Si necesitás recuperar correo/2FA, puede demorar más; te guiamos por Discord.</p>
+          </details>
+          <details>
+            <summary>¿Cómo recibo todo?</summary>
+            <p>Al pagar, te llega un email al instante con la videoguía, guía visual, checklist y asistentes, más la invitación a Discord para soporte 24/7. Hacés la videoguía (12–15 min), completás el checklist y quedás blindado.</p>
+          </details>
+          <details>
+            <summary>¿Y si ya me hackearon?</summary>
+            <p>Este pack no recupera cuentas robadas. Te sirve para blindar tu nueva cuenta y evitar perder otra. Cubre los ataques más comunes (phishing, accesos no autorizados, apps vinculadas) y reduce drásticamente el riesgo si seguís los pasos.</p>
+          </details>
+          <details>
+            <summary>¿Funciona en Windows, Mac o Consola?</summary>
+            <p>Sí. Protegés tu cuenta Microsoft, así que sirve para PC (Windows/Mac) y consolas. Podés seguir la guía desde cualquier navegador.</p>
+          </details>
+          <details>
+            <summary>¿Puedo usarlo en varias cuentas de mi familia?</summary>
+            <p>Sí, podés aplicarlo en tu núcleo familiar. Lo que no está permitido es redistribuir los archivos o el contenido del pack.</p>
+          </details>
+          <details>
+            <summary>¿Qué métodos de pago aceptan?</summary>
+            <p>Aceptamos PayPal y Mercado Pago (AR). Podés pagar con tarjetas de crédito y débito compatibles.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footgrid">
+      <div>© 2025 CompletCraft™ — Seguridad para gamers. Programa de afiliados <span class="badge">7% comisión</span>.</div>
+      <div class="footlinks">
+        <a href="#garantia">Garantía & Reembolsos</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://eqstore.craftingstore.net/category/478186">Comprar</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Exit-intent Modal -->
+  <div id="exitModal" class="modal hidden" aria-hidden="true">
+    <div class="backdrop" data-close="1"></div>
+    <div class="content">
+      <h3>¿Te estás por ir?</h3>
+      <p>¿Te estás por ir? <strong>Podrías perder la oferta de $27</strong>; luego va a subir a <strong>$49</strong>.</p>
+      <p class="countdown small">Termina el próximo jueves en <span id="modalCountdown">—</span></p>
+      <div class="actions">
+        <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Sí, aprovechar ahora</a>
+        <button class="btn ghost" id="exitClose">No, gracias</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    }));
+
+    // Shared next-Thursday countdown updater used by main card and modal
+    (function(){
+      const mainEl = document.getElementById('countdownMain');
+      const modalEl = document.getElementById('modalCountdown');
+      if (!mainEl && !modalEl) return;
+      function nextThursdayDeadline(){
+        const now = new Date();
+        const day = now.getDay(); // 0=Dom, 1=Lun, 2=Mar, 3=Mie, 4=Jue
+        let add = (4 - day + 7) % 7;
+        if (add === 0) add = 7; // siempre el próximo jueves
+        return new Date(now.getFullYear(), now.getMonth(), now.getDate() + add, 23, 59, 59);
+      }
+      let deadline = nextThursdayDeadline();
+      function fmt(diff){
+        const days = Math.floor(diff / 86400000);
+        const h = String(Math.floor((diff % 86400000)/3600000)).padStart(2,'0');
+        const m = String(Math.floor((diff % 3600000)/60000)).padStart(2,'0');
+        const s = String(Math.floor((diff % 60000)/1000)).padStart(2,'0');
+        return `${days}d ${h}:${m}:${s}`;
+      }
+      function tick(){
+        const now = new Date();
+        let diff = deadline - now;
+        if (diff <= 0) { deadline = nextThursdayDeadline(); diff = deadline - now; }
+        const text = fmt(diff);
+        if (mainEl) mainEl.textContent = `Oferta termina el próximo jueves y pasa a $49 en ${text}`;
+        if (modalEl) modalEl.textContent = text;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Exit-intent modal (shows once per user via localStorage)
+    (function(){
+      const modal = document.getElementById('exitModal');
+      if (!modal) return;
+      const CLOSE_SELECTORS = ['#exitClose', '.backdrop'];
+      let shown = localStorage.getItem('cc_exit_shown') === '1';
+
+      function show(){
+        if (shown) return;
+        shown = true;
+        localStorage.setItem('cc_exit_shown', '1');
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function hide(){
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      // Close actions
+      CLOSE_SELECTORS.forEach(sel => {
+        const el = modal.querySelector(sel);
+        if (el) el.addEventListener('click', hide);
+      });
+      // Exit intent detection (desktop)
+      document.addEventListener('mouseout', (e) => {
+        e = e || window.event;
+        const from = e.relatedTarget || e.toElement;
+        if ((!from || from.nodeName === 'HTML') && e.clientY <= 0) {
+          show();
+        }
+      });
+      // Fallback for fast scroll to top leave
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0) show();
+      });
+    })();
+  </script>
+</body>
+</html>
