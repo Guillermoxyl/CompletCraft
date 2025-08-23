@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CompletCraft™ — Blindaje Total para tu cuenta de Minecraft</title>
+<meta content="Blindá tu cuenta de Minecraft en 30 minutos. Guía visual + checklist imprimible + videos + asistentes IA 24/7. Shield Score™ 90+ garantizado o te devolvemos el dinero." name="description"/>
+<style>
+    :root {
+      --bg: #0b0f14;
+      --card: #121821;
+      --muted: #98a2b3;
+      --text: #e6edf3;
+      --primary: #4ade80; /* verde */
+      --accent: #60a5fa;  /* azul */
+      --danger: #f43f5e;  /* rojo */
+      --warning: #f59e0b; /* amarillo */
+      --shadow: 0 10px 25px rgba(0,0,0,0.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(11,15,20,0.65); border-bottom: 1px solid rgba(255,255,255,0.06); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight: 800; letter-spacing: 0.3px; }
+    .brand img { height: 28px; width: auto; display:block; }
+    .badge { font-size: 12px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; color: var(--muted); }
+    .nav a { padding: 8px 12px; border-radius: 10px; opacity: 0.9; }
+    .nav a:hover { background: rgba(255,255,255,0.06); opacity: 1; }
+
+    .hero { padding: 64px 0 24px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; }
+    .h1 { font-size: clamp(28px, 4vw, 46px); line-height: 1.08; margin: 0 0 12px; }
+    .lead { color: var(--muted); font-size: clamp(16px, 2.4vw, 18px); }
+    .cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+    .btn { padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); color: var(--text); font-weight: 700; cursor: pointer; transition: transform .05s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: linear-gradient(180deg, rgba(74,222,128,0.35), rgba(74,222,128,0.15)); border-color: rgba(74,222,128,0.5); }
+    .btn.ghost { background: transparent; }
+
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card.pad { padding: 22px; }
+
+    .proofbar { margin-top: 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .proofbar .chip { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); padding: 10px 12px; border-radius: 12px; text-align: center; font-size: 14px; color: var(--muted); }
+    .proofbar strong { color: var(--text); }
+
+    .illus { width: 100%; aspect-ratio: 4/3; border: 1px dashed rgba(255,255,255,0.14); border-radius: var(--radius); overflow:hidden; }
+    .illus img { width:100%; height:100%; object-fit: cover; display:block; }
+
+    section { padding: 48px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    h2 { margin: 0 0 8px; font-size: clamp(22px, 3.4vw, 32px); }
+    p { color: var(--muted); line-height: 1.6; }
+
+    .feature { display: grid; gap: 8px; padding: 16px; }
+    .feature .icon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,0.08); margin-bottom: 6px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .step { padding: 18px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+    .step .num { font-weight: 900; color: var(--accent); font-size: 14px; letter-spacing: 1px; }
+
+    .guarantee { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; align-items: center; }
+    .guarantee .seal { display: grid; place-items: center; padding: 24px; }
+    .seal-badge { width: 120px; height: 120px; border-radius: 999px; border: 3px solid var(--primary); display: grid; place-items: center; font-weight: 900; color: var(--primary); text-align:center; line-height:1.1; }
+    .list { margin: 12px 0 0 0; padding: 0; list-style: none; }
+    .list li { margin-bottom: 8px; display: flex; gap: 10px; align-items: center; }
+    .check { width: 18px; height: 18px; border-radius: 4px; background: var(--primary); display: inline-block; flex:none; }
+
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .price-card { padding: 22px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(96,165,250,0.12), rgba(255,255,255,0.02)); position: relative; overflow:hidden; }
+    .price-card.pop { background: linear-gradient(180deg, rgba(74,222,128,0.16), rgba(255,255,255,0.02)); border-color: rgba(74,222,128,0.45); transform: translateY(-4px); }
+    .price-title { font-weight: 800; font-size: 18px; display:flex; align-items:center; gap:8px; }
+    .price { font-size: 34px; font-weight: 900; margin: 8px 0 6px; }
+    .small { font-size: 12px; color: var(--muted); }
+    .countdown { font-weight: 800; font-size: 14px; color: var(--warning); }
+    .countdown.small { font-size: 13px; opacity: 0.9; }
+
+    .soon { opacity: 0.7; }
+    .blurwrap { filter: blur(3px); pointer-events: none; user-select: none; }
+
+    .faq { display: grid; gap: 10px; }
+    .faq details { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px 16px; }
+    .faq summary { cursor: pointer; font-weight: 700; }
+
+    .testimonial .shot { width:100%; height:auto; border-radius: 12px; border:1px solid rgba(255,255,255,0.1); margin-top:8px; }
+
+    /* Exit-intent modal */
+    .modal.hidden { display: none; }
+    .modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+    .modal .backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .modal .content { position: relative; max-width: 560px; width: 92%; background: var(--card); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .modal h3 { margin: 0 0 8px; font-size: 22px; }
+    .modal p { margin: 0 0 14px; }
+    .modal .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    footer { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.06); color: var(--muted); }
+    .footgrid { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; }
+    .footlinks a { margin-left: 14px; color: var(--muted); }
+    .tag { color: var(--warning); font-weight: 800; }
+    @media (max-width: 900px) {
+      .hero .wrap, .guarantee, .grid-3, .grid-2, .pricing, .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+<style id="cc-custom-effects">
+/* Rainbow underline for brand (animated) */
+.rainbow-underline { position: relative; display: inline-block; }
+.rainbow-underline::after {
+  content:""; position:absolute; left:0; right:0; bottom:-0.12em; height:0.16em;
+  background: linear-gradient(90deg,#ff6b6b,#f59e0b,#facc15,#10b981,#3b82f6,#a78bfa,#f472b6,#ff6b6b);
+  background-size: 300% 100%;
+  animation: cc-rainbow-move 3.2s linear infinite;
+  border-radius: 2px;
+  box-shadow: 0 1px 6px rgba(99,102,241,.35);
+}
+@keyframes cc-rainbow-move { 0%{background-position:0% 50%} 100%{background-position:100% 50%} }
+
+/* Assistant 24/7 highlight + hover glow */
+.assist-green { color:#16a34a; font-weight:700; transition: text-shadow .25s ease, filter .25s ease; }
+.assist-green:hover { filter: brightness(1.05); text-shadow: 0 0 8px rgba(34,197,94,.65), 0 0 18px rgba(34,197,94,.35); }
+</style>
+<style>
+/* Collapsible Score Checker styles */
+details.collapsible {
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  background: rgba(0,0,0,.02);
+  margin: 24px 0;
+  overflow: hidden;
+}
+details.collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+}
+details.collapsible > summary::-webkit-details-marker { display: none; }
+.summary-title { font-size: 1.05rem; }
+.summary-caret {
+  width: 10px; height: 10px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .2s ease;
+  margin-left: 12px;
+}
+details[open] .summary-caret { transform: rotate(45deg); }
+.collapsible-content { padding: 12px 18px 18px; }
+</style></head>
+<body>
+<header>
+<div class="container nav">
+<div class="brand">
+<img alt="eqstore logo" src="https://imgur.com/AksrwdH.png"/>
+<span>CompletCraft™</span>
+<span class="badge">Blindaje Total</span>
+</div>
+<nav>
+<a href="#score-checker-demo" style="margin-right:1rem">Score Checker Demo</a>
+<a href="#garantia" style="margin-right:1rem">Garantía</a>
+<a href="#como-calculamos" style="margin-right:1rem">Cómo calculamos</a>
+<a href="#como-funciona">Cómo funciona</a>
+<a href="#garantia">Garantía</a>
+<a href="#precios">Precios</a>
+<a href="#faq">FAQ</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container wrap">
+<div>
+<h1 class="h1"><span class="rainbow-underline">CompletCraft™</span> AI — Asistente 24/7 para blindar tu cuenta de Minecraft</h1>
+<p class="lead">Un <strong>asistente IA personal</strong> que te guía por <strong>todas las configuraciones críticas</strong> de tu cuenta de Microsoft para Minecraft y <strong>se adapta</strong> a tu nivel y a tu dispositivo. Ejecutás pasos simples, validás en vivo y llegás a <strong>90+ de seguridad (Shield Score™)</strong> sin complicarte.</p>
+<div class="cta">
+<a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Entrar al Asistente</a>
+<a class="btn ghost" href="#como-funciona">Ver cómo funciona</a>
+</div>
+<div class="proofbar">
+<div class="chip"><strong>No compartís contraseñas ni datos sensibles</strong></div>
+<div class="chip">Cuentas blindadas: <strong>973+</strong></div>
+<div class="chip">Tiempo medio: <strong>23 min</strong></div>
+</div>
+</div>
+<div class="illus panel"><img alt="Vista previa / demo" src="https://imgur.com/nt474MH.png"/></div>
+</div>
+</section>
+<section id="que-llevas">
+<div class="container">
+<div class="kicker">Qué te llevás</div>
+<h2>Todo lo que necesitás para quedar riesgo mínimo verificable (≥90 Shield Score™)</h2>
+<div class="grid-3">
+<!-- 1 -->
+<div class="card pad feature">
+<div class="icon">🤖</div>
+<strong><span class="assist-green">Asistentes IA 24/7</span> <span class="badge">IA Inside</span></strong>
+<p>Copiloto en tiempo real: detecta tu estado, arma tu plan y explica según tu nivel.</p>
+</div>
+<!-- 2 -->
+<div class="card pad feature">
+<div class="icon">🔐</div>
+<strong>Generador Blindado (contraseñas + nombre único) <span class="badge">IA</span></strong>
+<p>Crea contraseñas ultra seguras y propone un nickname exclusivo en 1 clic.</p>
+</div>
+<!-- 3 -->
+<div class="card pad feature">
+<div class="icon">✅</div>
+<strong>Checklist inteligente + hoja imprimible <span class="badge">IA</span></strong>
+<p>Plan personalizado y hoja para ver qué falta y qué ya aseguraste.</p>
+</div>
+<!-- 4 -->
+<div class="card pad feature">
+<div class="icon">🛡️</div>
+<strong>Shield Score™ + Certificado</strong>
+<p>Puntaje 0–100; con 90+ descargás certificado y rol “Cuenta Blindada 90+”.</p>
+</div>
+<!-- 5 -->
+<div class="card pad feature">
+<div class="icon">🧭</div>
+<strong>Guía visual interactiva</strong>
+<p>Paso a paso claro y actualizado al último momento.</p>
+</div>
+<!-- 6 -->
+<div class="card pad feature">
+<div class="icon">🎥</div>
+<strong>Entrenamientos en video</strong>
+<p>Modo Exprés 10’ y Completo para aprender a tu ritmo.</p>
+</div>
+<!-- 7 -->
+<div class="card pad feature">
+<div class="icon">🚨</div>
+<strong>Kit de emergencia — IA en tiempo real <span class="badge">IA</span></strong>
+<p>Si estás por ser hackeado o ves tu cuenta vulnerable, avisale a la IA y te guía en tiempo real con pasos urgentes, prioridades y plantillas.</p>
+</div>
+<!-- 8 -->
+<div class="card pad feature">
+<div class="icon">♻️</div>
+<strong>actualizaciones continuas mientras el servicio esté activo</strong>
+<p>La IA, las guías y el checklist se mantienen siempre al día con cambios de Microsoft / Minecraft Premium.</p>
+</div>
+<!-- 9 -->
+<div class="card pad feature">
+<div class="icon">💬</div>
+<strong>Soporte priorizado 24/7 en Discord</strong>
+<p>Ayuda directa cuando la necesitás, sin compartir datos sensibles.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="como-funciona">
+<div class="container">
+<div class="kicker">Cómo funciona</div>
+<h2>Blindaje en 3 pasos con IA</h2>
+<div class="steps">
+<div class="step">
+<div class="num">01</div>
+<strong>Detectar tu estado (2 min)</strong>
+<p>Evalúa tu estado actual (2FA, correo, sesiones y dispositivos) y crea un plan <strong>personalizado</strong>.</p>
+</div>
+<div class="step">
+<div class="num">02</div>
+<strong>Ejecutar con IA</strong>
+<p>Ejecutas directamente los pasos necesarios para proteger tu cuenta desde el minuto 1, con instrucciones claras.</p>
+</div>
+<div class="step">
+<div class="num">03</div>
+<strong>Validar y certificar</strong>
+<p>Una vez validado, vas a recibir un checklist completo, tu <strong>Shield Score™</strong> (qué tan alta es tu protección ahora), el <strong>rol “Cuenta Blindada 90+”</strong> en nuestro Discord y acceso a <strong>soporte 24/7</strong> con un humano real además de la IA.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="garantia">
+<div class="container guarantee">
+<div>
+<div class="kicker">Garantía Blindaje Total</div>
+<h2>Shield Score™ garantizado o 100% reembolso</h2>
+<ul class="list">
+<li><span class="check"></span><div><strong>30 días</strong> sin preguntas.</div></li>
+<li><span class="check"></span><div><strong>Condición:</strong> completar checklist y mostrar tu <strong>Shield Score™</strong>. Reembolso por el mismo método.</div></li>
+<li><span class="check"></span><div><strong>Prevención, no recuperación:</strong> no recupera cuentas robadas.</div></li>
+</ul>
+<div class="cta">
+<a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Comprar ahora</a>
+<a class="btn ghost" href="#faq">Ver condiciones</a>
+</div>
+</div>
+<div class="seal">
+<div class="seal-badge"><div>100%<br/>Garantía</div></div>
+</div>
+</div>
+</section>
+<details class="collapsible" id="score-checker-demo"><summary><span class="summary-title">Score Checker Demo (orientativo)</span><span aria-hidden="true" class="summary-caret"></span></summary><div class="collapsible-content"><section id="score-checker-demo" style="padding:3rem 1rem;border-top:1px solid #eee">
+<style>
+    /* --- Score Checker Pro styles (sc-) --- */
+    :root {
+      --sc-bg: #0b1220;
+      --sc-card: #0f172a;
+      --sc-muted: #94a3b8;
+      --sc-border: #1f2937;
+      --sc-ok: #16a34a;
+      --sc-warn: #f59e0b;
+      --sc-bad: #dc2626;
+      --sc-grad: linear-gradient(135deg, #14b8a6, #6366f1 60%, #a855f7);
+    }
+    #score-checker-demo {
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.12), transparent 60%),
+                  radial-gradient(1000px 500px at 90% 0%, rgba(168,85,247,.12), transparent 60%);
+    }
+    .sc-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+                  var(--sc-card);
+      border: 1px solid var(--sc-border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.25);
+      color: #e5e7eb;
+    }
+    .sc-header {
+      display:flex; align-items:center; gap:12px; margin-bottom:12px;
+    }
+    .sc-badge {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.06); border: 1px solid var(--sc-border);
+      font-size: .85rem; color: var(--sc-muted);
+    }
+    .sc-title {
+      font: 700 1.4rem/1.2 system-ui;
+      letter-spacing:.2px;
+      background: var(--sc-grad);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .sc-desc { color: #cbd5e1; margin: 8px 0 16px; max-width: 70ch; }
+    .sc-form { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 720px) { .sc-form { grid-template-columns: 1fr; } }
+    .sc-field { background: rgba(255,255,255,.03); border:1px solid var(--sc-border);
+                border-radius: 12px; padding: 10px 12px; }
+    .sc-field span { display:block; color:#e2e8f0; font-size:.95rem; margin-bottom:6px; }
+    .sc-field select { width:100%; padding:.55rem; border-radius:8px; border:1px solid #334155; background:#0b1220; color:#e2e8f0;}
+    .sc-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .sc-btn {
+      padding:.65rem 1rem; border-radius:10px; border:1px solid var(--sc-border);
+      background:#0b1220; color:#e5e7eb; cursor:pointer; transition: transform .15s ease, background .2s ease;
+    }
+    .sc-btn:hover { transform: translateY(-1px); }
+    .sc-btn.sc-primary { background: #0ea5e9; border-color:#0284c7; color:white; }
+    .sc-btn.sc-ghost { background: transparent; }
+    .sc-result { margin-top:16px; display:none; }
+    .sc-bar-wrap { height:18px; background:#0b1220; border:1px solid #1f2937; border-radius:10px; overflow:hidden; }
+    .sc-bar { height:100%; width:0%; background: linear-gradient(90deg, #ef4444, #f59e0b 50%, #16a34a 100%);
+              transition: width .6s ease; }
+    .sc-row { display:flex; align-items:center; gap:10px; margin-top:10px; }
+    .sc-semaforo { width:10px; height:10px; border-radius:999px; background:#64748b; box-shadow:0 0 0 6px rgba(100,116,139,.15) inset; }
+    .sc-semaforo.ok { background: var(--sc-ok); }
+    .sc-semaforo.warn { background: var(--sc-warn); }
+    .sc-semaforo.bad { background: var(--sc-bad); }
+    .sc-score { font: 800 1.1rem/1 system-ui; letter-spacing:.3px; }
+    .sc-note { font-size:.9rem; color:#94a3b8; margin-top:4px; }
+    .sc-copy-msg { color:#a7f3d0; }
+    .fade-in { animation: sc-fade .35s ease both; }
+    .pop { animation: sc-pop .25s ease both; }
+    .shake { animation: sc-shake .3s ease both; }
+    .pulse { animation: sc-pulse 1s ease both; }
+    @keyframes sc-fade { from{opacity:0; transform: translateY(4px);} to{opacity:1; transform:none;} }
+    @keyframes sc-pop { from{transform: scale(.96);} to{transform: scale(1);} }
+    @keyframes sc-shake { 0%,100%{ transform: translateX(0);} 25%{ transform: translateX(-4px);} 75%{ transform: translateX(4px);} }
+    @keyframes sc-pulse { 0%{ box-shadow:0 0 0 0 rgba(59,130,246,.25);} 100%{ box-shadow:0 0 0 14px rgba(59,130,246,0);} }
+    /* Confetti */
+    .sc-confetti { position:absolute; width:8px; height:8px; background:#fff; opacity:.9; will-change: transform, opacity; }
+    .sc-confetti-wrap { position:relative; }
+  </style>
+<div class="sc-card sc-confetti-wrap">
+<div class="sc-header">
+<span class="sc-badge">Demo</span>
+<h3 class="sc-title">Score Checker Demo (orientativo)</h3>
+</div>
+<p class="sc-desc">Estimá tu <strong>Shield Score™</strong> de forma <em>orientativa</em> (0–100). Este resultado <u>no</u> es una certificación oficial. Para el <strong>certificado</strong> necesitás completar el checklist dentro del producto, con evidencias.</p>
+<form autocomplete="off" class="sc-form" id="sc-form">
+<!-- 10 fields -->
+<label class="sc-field">
+<span>1) ¿Tenés 2FA/MFA activado en tu cuenta Microsoft/Xbox?</span>
+<select name="q1" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>2) ¿Usás un gestor de contraseñas (1Password/Bitwarden/Keychain)?</span>
+<select name="q2" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>3) ¿Tu contraseña de Microsoft es única y de ≥12 caracteres?</span>
+<select name="q3" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>4) ¿Tu correo principal (vinculado a Microsoft) tiene 2FA activo?</span>
+<select name="q4" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>5) ¿Tu dispositivo tiene PIN/bloqueo y actualizaciones automáticas activas?</span>
+<select name="q5" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>6) ¿Tenés antivirus/Defender activo y sin alertas?</span>
+<select name="q6" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>7) ¿Guardaste códigos de respaldo/recuperación en lugar seguro?</span>
+<select name="q7" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>8) ¿Usás launcher oficial y evitás mods/sources sospechosos?</span>
+<select name="q8" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>9) ¿Configuraste métodos de recuperación (teléfono alternativo/correo secundario)?</span>
+<select name="q9" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+<label class="sc-field">
+<span>10) ¿Revisás permisos de apps y sesiones activas cada 2–3 meses?</span>
+<select name="q10" required=""><option value="">Elegí…</option><option value="yes">Sí</option><option value="no">No</option></select>
+</label>
+</form>
+<div class="sc-actions">
+<button class="sc-btn sc-primary" id="sc-calc" type="button">Calcular</button>
+<button class="sc-btn sc-ghost" form="sc-form" type="reset">Limpiar</button>
+<button class="sc-btn sc-ghost" id="sc-copy" type="button">Copiar resultado</button>
+<span aria-live="polite" class="sc-copy-msg" id="sc-copy-msg"></span>
+</div>
+<div aria-live="polite" class="sc-result fade-in" id="sc-result">
+<div class="sc-bar-wrap pop"><div class="sc-bar" id="sc-bar"></div></div>
+<div class="sc-row">
+<span aria-hidden="true" class="sc-semaforo" id="sc-dot"></span>
+<strong class="sc-score" id="sc-score">0/100</strong>
+<span class="sc-note" id="sc-label">Completá el formulario y calculá tu score.</span>
+</div>
+<p class="sc-note">Resultado orientativo. Para el certificado oficial necesitás completar el checklist con evidencias dentro del producto.</p>
+</div>
+</div>
+<script>
+  (function(){
+    // --- Weights sum to 100 ---
+    const WEIGHTS = { q1:20, q2:15, q3:15, q4:15, q5:10, q6:5, q7:10, q8:5, q9:3, q10:2 };
+    const GATE_CAP_IF_NO_Q1 = 70; // cap score if 2FA (q1) is NO
+
+    function calcScore(values){
+      let score = 0;
+      for (const k in WEIGHTS) { if (values[k] === 'yes') score += WEIGHTS[k]; }
+      if (values.q1 !== 'yes') score = Math.min(score, GATE_CAP_IF_NO_Q1);
+      return Math.round(score);
+    }
+    function getValues(form){
+      const data = new FormData(form);
+      return Object.fromEntries([...data.entries()]);
+    }
+    function band(score){
+      if (score >= 90) return { key:'ok',   label: 'Verde (≥90) — listo para certificar', color: '#16a34a' };
+      if (score >= 70) return { key:'warn', label: 'Amarillo (70–89) — casi, reforzá 2–3 puntos', color: '#f59e0b' };
+      return               { key:'bad',  label: 'Rojo (<70) — activá 2FA y medidas base', color: '#dc2626' };
+    }
+    function toSummary(values, score){
+      const yes = Object.keys(values).filter(k => values[k] === 'yes').length;
+      const no = Object.keys(values).length - yes;
+      return `Score estimado: ${score}/100 — Sí: ${yes}, No: ${no}. Recordá: este resultado es orientativo.`;
+    }
+    function show(el){ el.style.display = 'block'; }
+    function cls(el, rm){ el.classList.remove('ok','warn','bad'); if (rm) el.classList.remove(rm); }
+
+    // Confetti burst for OK band
+    function confettiBurst(container){
+      const n = 28;
+      const w = container.clientWidth, h = 120;
+      for (let i=0;i<n;i++){
+        const s = document.createElement('span');
+        s.className = 'sc-confetti';
+        s.style.left = (w/2) + 'px';
+        s.style.top = '0px';
+        s.style.background = `hsl(${Math.random()*360}, 85%, 65%)`;
+        container.appendChild(s);
+        const dx = (Math.random()*2-1) * (w*0.4);
+        const dy = (Math.random()*-1) * h - 60;
+        const rot = Math.random()*720;
+        s.animate([
+          { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+          { transform: `translate(${dx}px, ${dy}px) rotate(${rot}deg)`, opacity: 0 }
+        ], { duration: 900 + Math.random()*500, easing: 'cubic-bezier(.21,1,.22,1)' }).onfinish = ()=> s.remove();
+      }
+    }
+
+    const form = document.getElementById('sc-form');
+    const btn  = document.getElementById('sc-calc');
+    const copyBtn = document.getElementById('sc-copy');
+    const copyMsg = document.getElementById('sc-copy-msg');
+    const res  = document.getElementById('sc-result');
+    const bar  = document.getElementById('sc-bar');
+    const dot  = document.getElementById('sc-dot');
+    const sc   = document.getElementById('sc-score');
+    const label= document.getElementById('sc-label');
+    const confWrap = document.querySelector('.sc-confetti-wrap');
+
+    function animateNumber(el, to){
+      const from = 0;
+      const duration = 600;
+      const start = performance.now();
+      function step(t){
+        const p = Math.min(1, (t - start)/duration);
+        const val = Math.round(from + (to - from)*p);
+        el.textContent = `${val}/100`;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    btn.addEventListener('click', function(){
+      // validate selects
+      for (const s of form.querySelectorAll('select[required]')){
+        if (!s.value) { s.focus(); s.parentElement.classList.add('shake'); setTimeout(()=>s.parentElement.classList.remove('shake'), 300); return; }
+      }
+      const values = getValues(form);
+      const score = calcScore(values);
+      const b = band(score);
+
+      show(res);
+      bar.style.width = score + '%';
+      dot.classList.remove('ok','warn','bad');
+      dot.classList.add(b.key);
+      label.textContent = b.label;
+      animateNumber(sc, score);
+      res.classList.remove('fade-in'); void res.offsetWidth; res.classList.add('fade-in'); // retrigger
+      if (b.key === 'ok') confettiBurst(confWrap);
+      if (b.key === 'warn') res.classList.add('pulse'), setTimeout(()=>res.classList.remove('pulse'), 900);
+      if (b.key === 'bad') res.classList.add('shake'), setTimeout(()=>res.classList.remove('shake'), 300);
+
+      copyBtn.dataset.summary = toSummary(values, score);
+    });
+
+    // Keyboard: Enter triggers calculate
+    form.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); btn.click(); } });
+
+    // Reset cleans result
+    form.addEventListener('reset', function(){
+      setTimeout(()=>{
+        res.style.display = 'none';
+        bar.style.width = '0%';
+        dot.classList.remove('ok','warn','bad');
+        sc.textContent = '0/100';
+        label.textContent = 'Completá el formulario y calculá tu score.';
+        copyBtn.dataset.summary = '';
+      }, 0);
+    });
+
+    // Copy
+    copyBtn.addEventListener('click', async function(){
+      const text = this.dataset.summary || 'Calculá el score y volvé a copiar.';
+      try { await navigator.clipboard.writeText(text); copyMsg.textContent = "Copiado."; }
+      catch(e) { copyMsg.textContent = "No se pudo copiar."; }
+      setTimeout(()=> copyMsg.textContent = "", 1500);
+    });
+  })();
+  </script>
+</section></div></details><section id="precios">
+<div class="container">
+<div class="kicker">Precios</div>
+<h2>Elegí tu plan</h2>
+<div class="pricing">
+<!-- BASIC (Próximamente, blureado, sin botón) -->
+<div class="price-card soon">
+<div class="price-title">BASIC <span class="badge">PRÓXIMAMENTE</span></div>
+<div class="price">$</div>
+<div class="small">Ideal si querés empezar.</div>
+<div class="blurwrap">
+<ul class="list" style="margin-top:10px">
+<li><span class="check"></span><div>Guía visual + Checklist</div></li>
+<li><span class="check"></span><div>Videoguía 12–15 min</div></li>
+<li><span class="check"></span><div>Actualizaciones 12 meses</div></li>
+<li><span class="check"></span><div>Mini-guía anti-phishing</div></li>
+<li><span class="check"></span><div>Acceso a Discord básico</div></li>
+</ul>
+</div>
+</div>
+<!-- PRO (CompletCraft™ $27 con countdown a próximo jueves) -->
+<div class="price-card pop">
+<div class="price-title">CompletCraft™ AI <span class="badge">Recomendado</span></div>
+<div class="price">$27</div>
+<div class="countdown" id="countdownMain">Oferta termina el próximo jueves y pasa a $49 en —</div>
+<div class="small">La experiencia completa. Incluye todo lo necesario para blindarte hoy.</div>
+<ul class="list" style="margin-top:10px">
+<li><span class="check"></span><div>Guía visual interactiva (actualizada al último momento)</div></li>
+<li><span class="check"></span><div>2 entrenamientos en video (Modo completo + Exprés 10’)</div></li>
+<li><span class="check"></span><div>Asistentes IA 24/7: protección, contraseñas blindadas y nombres únicos</div></li>
+<li><span class="check"></span><div>Checklist imprimible + planilla familiar de datos actualizados</div></li>
+<li><span class="check"></span><div>Shield Score™ 0–100 (90 o más = certificado + rol Discord “Cuenta Blindada 90+”)</div></li>
+<li><span class="check"></span><div>Kit de emergencia: plantillas + pasos exactos de recuperación</div></li>
+<li><span class="check"></span><div>Mini-guía anti-phishing (1 página, imprimible)</div></li>
+<li><span class="check"></span><div>Soporte priorizado 24/7 (SLA)</div></li>
+<li><span class="check"></span><div>Actualizaciones por 12 meses</div></li>
+</ul>
+<div class="cta" style="margin-top:12px"><a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Comprar CompletCraft™</a></div>
+</div>
+<!-- FAMILY (Próximamente, blureado, sin botón) -->
+<div class="price-card soon">
+<div class="price-title">FAMILY <span class="badge">PRÓXIMAMENTE</span></div>
+<div class="price">$</div>
+<div class="small">Hasta 2 integrantes adicionales.</div>
+<div class="blurwrap">
+<ul class="list" style="margin-top:10px">
+<li><span class="check"></span><div>Todo en CompletCraft™</div></li>
+<li><span class="check"></span><div>Certificado individual por integrante</div></li>
+<li><span class="check"></span><div>Planilla imprimible familiar</div></li>
+<li><span class="check"></span><div>Soporte priorizado familiar</div></li>
+<li><span class="check"></span><div>Actualizaciones 12 meses</div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="testimonios">
+<div class="container">
+<h2>Lo que dicen los jugadores</h2>
+<div class="grid-3">
+<div class="card pad testimonial">
+<strong>@Jose23.10</strong> <span class="small">(usuario de Discord)</span>
+<p>“Hice el modo exprés y en 15 min ya tenía 2FA y todo verde. Tremendo.”</p>
+<img alt="@Jose23.10" class="shot" src="https://imgur.com/tcATg3V.png"/>
+</div>
+<div class="card pad testimonial">
+<strong>@the_morsilla01</strong> <span class="small">(usuario de Discord)</span>
+<p>“El certificado y el rol en Discord son la frutilla del postre. Cero estrés.”</p>
+<img alt="@the_morsilla01" class="shot" src="https://imgur.com/Bsd0ZQ8.png"/>
+</div>
+<div class="card pad testimonial">
+<strong>@nanii.xit</strong> <span class="small">(usuario de Discord)</span>
+<p>“Mucho mejor que buscar videos sueltos. Todo claro y actualizado.”</p>
+<img alt="@nanii.xit" class="shot" src="https://imgur.com/BycLxca.png"/>
+</div>
+<div class="card pad testimonial">
+<strong>@mc.eyes</strong> <span class="small">(usuario de Discord)</span>
+<p>funcionando todo perfecto, bien protegido. ahora a jugar tranquilo :D</p>
+<img alt="@mc.eyes" class="shot" src="https://imgur.com/46LvOOm.png"/>
+</div>
+<div class="card pad testimonial">
+<strong>@valen_god</strong> <span class="small">(usuario de Discord)</span>
+<p>Lo estuve probando y eh implementado la mayoria de cosas y la verdad que todo excelente. 10/10</p>
+<img alt="@valen_god" class="shot" src="https://imgur.com/q9VSCgw.png"/>
+</div>
+<div class="card pad testimonial">
+<strong>@geroo1405</strong> <span class="small">(usuario de Discord)</span>
+<p>por ahora todo perfecto, muy buena atención y muy bien protegida... vuelvo en 3 meses a actualizar</p>
+<img alt="@geroo1405" class="shot" src="https://imgur.com/oD0pisU.png"/>
+</div>
+</div>
+</div>
+</section>
+<section id="faq">
+<div class="container">
+<div class="kicker">FAQ</div>
+<h2>Preguntas frecuentes</h2>
+<div class="faq">
+<details>
+<summary>¿Necesitan mi contraseña?</summary>
+<p>No. <strong>No compartís contraseñas ni datos sensibles</strong>. Vos ejecutás los cambios; el asistente te guía.</p>
+</details>
+<details>
+<summary>¿Cuánto tardo en quedar protegido?</summary>
+<p>Con el Modo Exprés, podés quedar protegido en 10–30 minutos, dependiendo de tu configuración actual.</p>
+</details>
+<details>
+<summary>¿Qué es el Shield Score™?</summary>
+<p>Es un puntaje 0–100 basado en tu checklist. Con 90 o más tenés certificado y rol “Cuenta Blindada 90+”.</p>
+</details>
+<details>
+<summary>¿Cómo funciona la garantía y el reembolso?</summary>
+<p>Tenés 30 días “sin preguntas”. Condiciones completas en esta misma página.</p>
+</details>
+<details>
+<summary>¿Puedo usarlo con mi familia?</summary>
+<p>Sí. El plan Family cubre hasta 2 integrantes adicionales, con planilla imprimible para mantener datos actualizados.</p>
+</details>
+<!-- Nuevas preguntas agregadas (con asistentes, no bots) -->
+<details>
+<summary>¿Necesito saber de seguridad?</summary>
+<p>No. CompletCraft™ está pensado para que cualquiera lo haga: comprás, seguís una videoguía de 12–15 min paso a paso, y al final validás con la checklist y el asistente. Sin tecnicismos ni configuraciones raras.</p>
+</details>
+<details>
+<summary>¿Java o Bedrock?</summary>
+<p>Protegés tu cuenta Microsoft, que es la que da acceso a Minecraft Java y Bedrock (y a cualquier juego vinculado). Al blindarla, reducís al mínimo el riesgo de robo de datos, juegos o acceso.</p>
+</details>
+<details>
+<summary>¿Cuánto tarda?</summary>
+<p>12–15 minutos en el 80% de los casos. Si necesitás recuperar correo/2FA, puede demorar más; te guiamos por Discord.</p>
+</details>
+<details>
+<summary>¿Cómo recibo todo?</summary>
+<p>Al pagar, te llega un email al instante con la videoguía, guía visual, checklist y asistentes, más la invitación a Discord para soporte 24/7. Hacés la videoguía (12–15 min), completás el checklist y quedás blindado.</p>
+</details>
+<details>
+<summary>¿Y si ya me hackearon?</summary>
+<p>Este pack no recupera cuentas robadas. Te sirve para blindar tu nueva cuenta y evitar perder otra. Cubre los ataques más comunes (phishing, accesos no autorizados, apps vinculadas) y reduce drásticamente el riesgo si seguís los pasos.</p>
+</details>
+<details>
+<summary>¿Funciona en Windows, Mac o Consola?</summary>
+<p>Sí. Protegés tu cuenta Microsoft, así que sirve para PC (Windows/Mac) y consolas. Podés seguir la guía desde cualquier navegador.</p>
+</details>
+<details>
+<summary>¿Puedo usarlo en varias cuentas de mi familia?</summary>
+<p>Sí, podés aplicarlo en tu núcleo familiar. Lo que no está permitido es redistribuir los archivos o el contenido del pack.</p>
+</details>
+<details>
+<summary>¿Qué métodos de pago aceptan?</summary>
+<p>Aceptamos PayPal y Mercado Pago (AR). Podés pagar con tarjetas de crédito y débito compatibles.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footgrid">
+<div>© 2025 CompletCraft™ — Seguridad para gamers. Programa de afiliados <span class="badge">7% comisión</span>.</div>
+<div class="footlinks">
+<a href="#garantia">Garantía &amp; Reembolsos</a>
+<a href="#faq">FAQ</a>
+<a href="https://eqstore.craftingstore.net/category/478186">Comprar</a>
+</div>
+</div>
+</footer>
+<!-- Exit-intent Modal -->
+<div aria-hidden="true" class="modal hidden" id="exitModal">
+<div class="backdrop" data-close="1"></div>
+<div class="content">
+<h3>¿Te estás por ir?</h3>
+<p>¿Te estás por ir? <strong>Podrías perder la oferta de $27</strong>; luego va a subir a <strong>$49</strong>.</p>
+<p class="countdown small">Termina el próximo jueves en <span id="modalCountdown">—</span></p>
+<div class="actions">
+<a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Sí, aprovechar ahora</a>
+<button class="btn ghost" id="exitClose">No, gracias</button>
+</div>
+</div>
+</div>
+<script>
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    }));
+
+    // Shared next-Thursday countdown updater used by main card and modal
+    (function(){
+      const mainEl = document.getElementById('countdownMain');
+      const modalEl = document.getElementById('modalCountdown');
+      if (!mainEl && !modalEl) return;
+      function nextThursdayDeadline(){
+        const now = new Date();
+        const day = now.getDay(); // 0=Dom, 1=Lun, 2=Mar, 3=Mie, 4=Jue
+        let add = (4 - day + 7) % 7;
+        if (add === 0) add = 7; // siempre el próximo jueves
+        return new Date(now.getFullYear(), now.getMonth(), now.getDate() + add, 23, 59, 59);
+      }
+      let deadline = nextThursdayDeadline();
+      function fmt(diff){
+        const days = Math.floor(diff / 86400000);
+        const h = String(Math.floor((diff % 86400000)/3600000)).padStart(2,'0');
+        const m = String(Math.floor((diff % 3600000)/60000)).padStart(2,'0');
+        const s = String(Math.floor((diff % 60000)/1000)).padStart(2,'0');
+        return `${days}d ${h}:${m}:${s}`;
+      }
+      function tick(){
+        const now = new Date();
+        let diff = deadline - now;
+        if (diff <= 0) { deadline = nextThursdayDeadline(); diff = deadline - now; }
+        const text = fmt(diff);
+        if (mainEl) mainEl.textContent = `Oferta termina el próximo jueves y pasa a $49 en ${text}`;
+        if (modalEl) modalEl.textContent = text;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Exit-intent modal (shows once per user via localStorage)
+    (function(){
+      const modal = document.getElementById('exitModal');
+      if (!modal) return;
+      const CLOSE_SELECTORS = ['#exitClose', '.backdrop'];
+      let shown = localStorage.getItem('cc_exit_shown') === '1';
+
+      function show(){
+        if (shown) return;
+        shown = true;
+        localStorage.setItem('cc_exit_shown', '1');
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function hide(){
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+      // Close actions
+      CLOSE_SELECTORS.forEach(sel => {
+        const el = modal.querySelector(sel);
+        if (el) el.addEventListener('click', hide);
+      });
+      // Exit intent detection (desktop)
+      document.addEventListener('mouseout', (e) => {
+        e = e || window.event;
+        const from = e.relatedTarget || e.toElement;
+        if ((!from || from.nodeName === 'HTML') && e.clientY <= 0) {
+          show();
+        }
+      });
+      // Fallback for fast scroll to top leave
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0) show();
+      });
+    })();
+  </script>
+<section id="oferta" style="padding:2rem 1rem;border-top:1px solid #eee">
+<h2 style="margin:0 0 .5rem 0;font-family:system-ui">Oferta de lanzamiento honesta</h2>
+<p style="margin:.5rem 0 1rem 0;max-width:60ch">
+    Precio lanzamiento <strong>$27</strong> hasta <time id="deadline-time"></time>. Luego <strong>$49</strong>.
+    El contador usa fecha/hora real. Editá el atributo <code>data-deadline</code> para cambiar la fecha.
+  </p>
+<div data-deadline="2025-08-29T23:59:00-03:00" id="countdown" style="font:600 1.25rem/1.2 system-ui;letter-spacing:.5px"></div>
+</section>
+<script>
+(function() {
+  const el = document.getElementById('countdown');
+  if (!el) return;
+  const deadlineIso = el.getAttribute('data-deadline');
+  const deadline = new Date(deadlineIso);
+  const deadlineTime = document.getElementById('deadline-time');
+  if (deadlineTime) deadlineTime.textContent = deadline.toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' });
+
+  function pad(n) { return String(n).padStart(2,'0'); }
+  function tick() {
+    const now = new Date();
+    let ms = deadline - now;
+    if (ms < 0) { el.textContent = "Finalizó"; return; }
+    const d = Math.floor(ms / 86400000); ms -= d*86400000;
+    const h = Math.floor(ms / 3600000); ms -= h*3600000;
+    const m = Math.floor(ms / 60000); ms -= m*60000;
+    const s = Math.floor(ms / 1000);
+    el.textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(s) + "s";
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+<section id="como-calculamos" style="padding:2rem 1rem;border-top:1px solid #eee">
+<h2 style="margin:0 0 .5rem 0;font-family:system-ui">Cómo calculamos el Shield Score™</h2>
+<p style="max-width:70ch">
+    El <strong>Shield Score™</strong> es una métrica interna (0–100) que resume tu nivel de protección.
+    Se calcula ponderando <em>criterios verificables</em> como: 1) salud del correo y MFA/2FA activado; 2) seguridad de contraseñas y gestor;
+    3) protección de cuenta Microsoft/Xbox; 4) higiene de dispositivos; 5) recuperación y verificación.
+  </p>
+<ul>
+<li><strong>Umbral de certificación:</strong> ≥ 90 puntos.</li>
+<li><strong>Evidencia:</strong> cada paso del checklist permite adjuntar capturas/confirmaciones.</li>
+<li><strong>Revisión:</strong> el asistente IA y/o soporte humano validan coherencia y completitud.</li>
+</ul>
+<p style="font-size:.95rem;color:#444">Nota: Shield Score™ no equivale a “invulnerabilidad”. Reduce el riesgo a niveles mínimos <em>verificables</em>.</p>
+</section>
+<footer id="legal" style="padding:1.5rem 1rem;border-top:1px solid #eee;color:#333">
+<p style="max-width:75ch;margin:0 auto">
+<strong>Disclaimer:</strong> CompletCraft™ es un proyecto independiente y <strong>no está afiliado</strong> a Mojang/Microsoft.
+    El <strong>certificado</strong> es interno de CompletCraft™. “Minecraft” es una marca de Mojang AB. Usá contraseñas únicas y MFA.
+  </p>
+</footer>
+<script>
+(function(){
+  function openOnHash(){
+    if (location.hash === '#score-checker-demo') {
+      var d = document.getElementById('score-checker-demo');
+      if (d && !d.open) d.open = true;
+      if (d) d.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+  document.addEventListener('DOMContentLoaded', openOnHash);
+  window.addEventListener('hashchange', openOnHash);
+
+  // Smooth scroll for internal anchor links
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href');
+    var target = document.querySelector(id);
+    if(!target) return;
+    e.preventDefault();
+    if (id === '#score-checker-demo' && target.tagName.toLowerCase() === 'details') {
+      target.open = true;
+    }
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    history.pushState(null, '', id);
+  }, {passive:false});
+})();
+</script></body>
+</html>
