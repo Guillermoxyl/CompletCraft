@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompletCraft™ — Blindaje Total para tu cuenta de Minecraft</title>
+  <meta name="description" content="Blindá tu cuenta de Minecraft en 15 minutos. IA 24/7 + guía + checklist + kit de emergencia + soporte Discord. Certificá 90+ Shield Score™ o te devolvemos el dinero (30 días).">
+
+  <!-- Estilos base + tema 'minecrafty' -->
+  <style>
+    :root {
+      --bg: #2e5339; /* verde oscuro tipo bioma bosque */
+      --card: #3a5a40; /* verde musgo */
+      --muted: #d1e7c1; /* verde claro para textos secundarios */
+      --text: #f0fdf4; /* blanco verdoso */
+      --primary: #55aa55; /* verde césped */
+      --accent: #3c8c3c; /* tono intermedio */
+      --danger: #a83232; /* rojo tierra */
+      --warning: #d4a017; /* dorado */
+      --shadow: 0 10px 25px rgba(0,0,0,0.5);
+      --radius: 16px;
+    }
+    *{ box-sizing: border-box; }
+    html, body{ margin:0; padding:0; background: linear-gradient(180deg, #2e5339 0%, #1f3a25 100%); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial; }
+    a{ color: inherit; text-decoration: none; }
+    .container{ width:100%; max-width:1100px; margin:0 auto; padding:0 20px; }
+
+    header{ position: sticky; top:0; backdrop-filter: blur(8px); background: linear-gradient(180deg, #3a5a40 0%, #1f3a25 100%); border-bottom: 2px solid #2c4a33; z-index:50; }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px; }
+    .brand img{ height:28px; width:auto; display:block; }
+    .badge{ font-size:12px; padding:4px 10px; border:1px solid rgba(255,255,255,0.14); border-radius:999px; color:var(--muted); }
+    .nav a{ padding:8px 12px; border-radius:10px; opacity:.95; }
+    .nav a:hover{ background: rgba(255,255,255,0.06); opacity:1; }
+
+    .hero{ padding:64px 0 24px; }
+    .hero .wrap{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap:32px; align-items:center; }
+    .h1{ font-size: clamp(28px, 4vw, 46px); line-height:1.08; margin:0 0 12px; }
+    .lead{ color:var(--muted); font-size: clamp(16px, 2.4vw, 18px); }
+    .cta{ display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
+    .btn{ padding:14px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); color:var(--text); font-weight:700; cursor:pointer; transition: transform .05s ease; }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{ background: linear-gradient(180deg, #55aa55 0%, #3c8c3c 100%); border-color: #4caf50; color:#fff; text-shadow: 1px 1px 0 #2c4a33; }
+    .btn.ghost{ background: transparent; }
+
+    .panel{ background: linear-gradient(180deg, #3a5a40 0%, #2e5339 100%); border:1px solid #4a7a55; padding:18px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card{ background: var(--card); border:1px solid #4a7a55; border-radius:var(--radius); box-shadow: var(--shadow); }
+    .card.pad{ padding:22px; }
+
+    .proofbar{ margin-top:14px; display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; }
+    .proofbar .chip{ background: rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); padding:10px 12px; border-radius:12px; text-align:center; font-size:14px; color:var(--muted); }
+    .proofbar strong{ color:var(--text); }
+
+    .illus{ width:100%; aspect-ratio: 4/3; border:1px dashed rgba(255,255,255,0.18); border-radius:var(--radius); overflow:hidden; }
+    .illus img{ width:100%; height:100%; object-fit: cover; display:block; }
+
+    section{ padding:48px 0; }
+    .grid-5{ display:grid; grid-template-columns: repeat(5, 1fr); gap:18px; }
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
+    .grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); gap:18px; }
+
+    .kicker{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    h2{ margin:0 0 8px; font-size: clamp(22px, 3.4vw, 32px); }
+    p{ color:var(--muted); line-height:1.6; }
+
+    .feature{ display:grid; gap:8px; padding:16px; }
+    .feature .icon{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background: linear-gradient(180deg, #4caf50 0%, #2c4a33 100%); color:#fff; margin-bottom:6px; }
+
+    .steps{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    .step{ padding:18px; border-radius:14px; border:1px dashed rgba(255,255,255,0.18); background: rgba(255,255,255,0.04); }
+    .step .num{ font-weight:900; color:var(--accent); font-size:14px; letter-spacing:1px; }
+
+    .guarantee{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap:18px; align-items:center; }
+    .guarantee .seal{ display:grid; place-items:center; padding:24px; }
+    .seal-badge{ width:120px; height:120px; border-radius:999px; border:3px solid var(--primary); display:grid; place-items:center; font-weight:900; color:var(--primary); text-align:center; line-height:1.1; }
+
+    .list{ margin:12px 0 0 0; padding:0; list-style:none; }
+    .list li{ margin-bottom:8px; display:flex; gap:10px; align-items:center; }
+    .check{ width:18px; height:18px; border-radius:4px; background: var(--primary); display:inline-block; flex:none; }
+
+    .pricing{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    .price-card{ padding:22px; border-radius: var(--radius); border:1px solid #4a7a55; background: linear-gradient(180deg, rgba(85,170,85,0.16), rgba(255,255,255,0.02)); position:relative; overflow:hidden; }
+    .price-title{ font-weight:800; font-size:18px; display:flex; align-items:center; gap:8px; }
+    .price{ font-size:34px; font-weight:900; margin:8px 0 6px; color:#f0fdf4; }
+    .small{ font-size:12px; color:var(--muted); }
+    .price .was{ color:#aeb6c2; opacity:.7; text-decoration: line-through; text-decoration-color:#a83232; text-decoration-thickness:2px; text-decoration-skip-ink:none; font-weight:700; font-size:20px; margin-right:8px; }
+
+    .faq{ display:grid; gap:10px; }
+    .faq details{ background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px; }
+    .faq summary{ cursor:pointer; font-weight:700; }
+
+    footer{ padding:40px 0; border-top:1px solid rgba(255,255,255,0.12); color:var(--muted); background:#1f3a25; }
+    .footgrid{ display:grid; grid-template-columns: 1fr auto; gap:14px; align-items:center; }
+    .footlinks a{ margin-left:14px; color:var(--muted); }
+
+    /* Tamaño normal de imágenes de testimonios */
+    .testimonials-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
+    .testimonial .shot{ width:100%; height:auto; max-height:140px; object-fit:cover; border-radius:10px; border:1px solid rgba(255,255,255,0.15); margin-top:10px; }
+    .testimonial p{ font-size:.95rem; }
+  </style>
+
+  <!-- Micro efectos opcionales -->
+  <style id="cc-custom-effects">
+    .rainbow-underline{ position:relative; display:inline-block; }
+    .rainbow-underline::after{
+      content:""; position:absolute; left:0; right:0; bottom:-0.12em; height:0.16em;
+      background: linear-gradient(90deg,#f59e0b,#facc15,#10b981,#3b82f6,#a78bfa,#f472b6,#f59e0b);
+      background-size:300% 100%; animation: cc-rainbow-move 3.2s linear infinite; border-radius:2px; box-shadow:0 1px 6px rgba(99,102,241,.35);
+    }
+    @keyframes cc-rainbow-move{ 0%{background-position:0% 50%} 100%{background-position:100% 50%} }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="./CompletCraft™ — Blindaje Total para tu cuenta de Minecraft_files/AksrwdH.png" alt="eqstore logo">
+        <span>CompletCraft™</span>
+        <span class="badge">Blindaje Total</span>
+      </div>
+      <nav>
+        <a href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#como-funciona">Cómo funciona</a>
+        <a href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#garantia">Garantía</a>
+        <a href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#precios">Precios</a>
+        <a href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <h1 class="h1">Perder tu cuenta es perder tu historia. Protegela antes de que sea tarde.</h1>
+          <p class="lead">En 15 minutos blindás tu cuenta Premium con una guía paso a paso + IA 24/7, sin compartir contraseñas.</p>
+          <div class="cta">
+            <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Proteger ahora</a>
+            <a class="btn ghost" href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#como-funciona">Ver cómo funciona</a>
+          </div>
+          <div class="microcopy" style="margin-top:8px;color:var(--muted);font-weight:600;">Entrás y jugás tranquilo hoy mismo.</div>
+          <div class="proofbar" style="margin-top:14px">
+            <div class="chip"><strong>No compartís contraseñas</strong></div>
+            <div class="chip">Cuentas blindadas: <strong>973+</strong></div>
+            <div class="chip">Tiempo medio: <strong>23 min</strong></div>
+            <div class="chip"><strong>Garantía 30 días</strong></div>
+          </div>
+        </div>
+        <div class="illus panel">
+          <img src="./CompletCraft™ — Blindaje Total para tu cuenta de Minecraft_files/nt474MH.png" alt="Vista previa / demo" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ TE LLEVÁS (5 pilares) -->
+    <section id="que-llevas">
+      <div class="container">
+        <div class="kicker">Qué te llevás</div>
+        <h2>Todo para que tu cuenta no sea vulnerable</h2>
+        <div class="grid-5">
+          <div class="card pad feature">
+            <div class="icon">🤖</div>
+            <strong>Asistentes IA 24/7</strong>
+            <p>Copiloto en tiempo real: plan a tu medida y explicaciones según tu nivel.</p>
+          </div>
+          <div class="card pad feature">
+            <div class="icon">🎥</div>
+            <strong>Videoguía 12–15′ + Modo completo</strong>
+            <p>Seguí el paso a paso y avanzá sin perderte.</p>
+          </div>
+          <div class="card pad feature">
+            <div class="icon">🛡️</div>
+            <strong>Checklist + Shield Score™</strong>
+            <p>Proteges tu cuenta, se valida que se protegio al 100% por nuestro equipo y se te otorga el certificado de protegido nivel +90</p>
+          </div>
+          <div class="card pad feature">
+            <div class="icon">🚨</div>
+            <strong>Kit de emergencia</strong>
+            <p>Plantillas y prioridades si detectás riesgo: acción inmediata.</p>
+          </div>
+          <div class="card pad feature">
+            <div class="icon">💬</div>
+            <strong>Soporte 24/7 en Discord</strong>
+            <p>Ayuda directa cuando la necesitás. Sin compartir contraseñas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="kicker">Cómo funciona</div>
+        <h2>Blindaje en 3 pasos</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <strong>Detectar tu estado (2 min)</strong>
+            <p>Analiza 2FA, correo, sesiones y dispositivos para crear un plan personalizado.</p>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <strong>Ejecutar con IA</strong>
+            <p>Aplicás los cambios desde el minuto 1 con instrucciones claras y seguras.</p>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <strong>Validar y certificar</strong>
+            <p>Checklist completo, <strong>Shield Score™</strong> y certificado 90+ + rol en Discord.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GARANTÍA -->
+    <section id="garantia">
+      <div class="container guarantee">
+        <div>
+          <div class="kicker">Garantía Blindaje Total</div>
+          <h2>Blindaje en 30 minutos o te asistimos 1:1 (o 100% reembolso)</h2>
+          <ul class="list"><li><span class="check"></span><div><strong>Blindaje garantizado</strong> o asistencia <strong>1:1</strong>.</div></li><li><span class="check"></span><div><strong>30 días</strong> de reembolso <strong>sin preguntas</strong>.</div></li><li><span class="check"></span><div><strong>No recupera cuentas</strong>, <strong>previene hackeos</strong>.</div></li></ul>
+          <div class="cta">
+            <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Proteger ahora</a>
+            <a class="btn ghost" href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#faq">Ver condiciones</a>
+          </div>
+        </div>
+        <div class="seal">
+          <div class="seal-badge"><div>100%<br>Garantía</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS (un solo plan) -->
+    <section id="precios">
+      <div class="container">
+        <h2>Está solo a un paso de protegerla.</h2>
+        <div class="pricing">
+          <div class="price-card">
+            <div class="price-title">CompletCraft™ AI <span class="badge">Recomendado</span></div>
+            <div class="price"><span class="was">27,90</span> 13,95&nbsp;USD</div>
+            <div class="price-micro" style="margin-top:6px;font-weight:700;">menos que una cuenta, mas que tu historia durante años</div>
+            <div class="small">La experiencia completa. Incluye todo lo necesario para blindarte hoy.</div>
+            <ul class="list" style="margin-top:10px">
+              <li><span class="check"></span><div>Videoguía 12–15′ (Exprés) + Modo completo</div></li>
+              <li><span class="check"></span><div>Asistentes IA 24/7: protección, contraseñas blindadas y nombres únicos</div></li>
+              <li><span class="check"></span><div>Checklist imprimible + <strong>Shield Score™</strong> (≥90 = certificado + rol Discord)</div></li>
+              <li><span class="check"></span><div>Kit de emergencia: plantillas + pasos exactos de recuperación</div></li>
+              <li><span class="check"></span><div>Soporte priorizado 24/7 en Discord</div></li>
+              <li><span class="check"></span><div>Actualizaciones por 12 meses</div></li>
+            </ul>
+            <div class="cta" style="margin-top:12px">
+              <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Proteger ahora</a>
+            </div>
+          
+          
+        </div>
+        <div class="pricing" style="margin-top:40px;">
+<div class="price-card">
+            <div class="price-title">Solo guía (sin IA)</div>
+            <style> .price-card:last-of-type { background: linear-gradient(180deg, #3a4f3a, #2f4232); } </style>
+            <div class="price">7&nbsp;USD</div>
+            <div class="small">Videoguía y checklist imprimible. <strong>Sin IA 24/7</strong>, sin soporte priorizado.</div>
+            <ul class="list" style="margin-top:10px"><li><span class="check"></span><div>Videoguía 12–15′ (Exprés)</div></li><li><span class="check"></span><div>Checklist imprimible</div></li><li><div><span class="check" style="background:#a83232;margin-right:6px;"></span>Sin asistentes IA 24/7</div></li><li><div><span class="check" style="background:#a83232;margin-right:6px;"></span>Sin Shield Score™ ni certificado</div></li><li><div><span class="check" style="background:#a83232;margin-right:6px;"></span>Sin actualizaciones</div></li><li><div><span class="check" style="background:#a83232;margin-right:6px;"></span>Sin soporte</div></li><li><div><span class="check" style="background:#a83232;margin-right:6px;"></span>Sin kit de emergencia</div></li></ul>
+            <div class="cta" style="margin-top:12px">
+              <a class="btn ghost" href="https://eqstore.craftingstore.net/category/478186">Proteger ahora</a>
+            </div>
+          </div>
+
+                </div>
+</div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <div class="grid-3 testimonials-grid">
+      <div class="card pad testimonial">
+        <strong>@Jose23.10</strong> <span class="small">(usuario de Discord)</span>
+        <p>“Hice el modo exprés y en 15 min ya tenía 2FA y todo verde. Tremendo.”</p>
+        <img src="https://imgur.com/tcATg3V.png" alt="@Jose23.10" class="shot" loading="lazy">
+      </div>
+      <div class="card pad testimonial">
+        <strong>@the_morsilla01</strong> <span class="small">(usuario de Discord)</span>
+        <p>“El certificado y el rol en Discord son la frutilla del postre. Cero estrés.”</p>
+        <img src="https://imgur.com/Bsd0ZQ8.png" alt="@the_morsilla01" class="shot" loading="lazy">
+      </div>
+      <div class="card pad testimonial">
+        <strong>@nanii.xit</strong> <span class="small">(usuario de Discord)</span>
+        <p>“Mucho mejor que buscar videos sueltos. Todo claro y actualizado.”</p>
+        <img src="https://imgur.com/BycLxca.png" alt="@nanii.xit" class="shot" loading="lazy">
+      </div>
+      <div class="card pad testimonial">
+        <strong>@mc.eyes</strong> <span class="small">(usuario de Discord)</span>
+        <p>funcionando todo perfecto, bien protegido. ahora a jugar tranquilo :D</p>
+        <img src="https://imgur.com/46LvOOm.png" alt="@mc.eyes" class="shot" loading="lazy">
+      </div>
+      <div class="card pad testimonial">
+        <strong>@valen_god</strong> <span class="small">(usuario de Discord)</span>
+        <p>Lo estuve probando y eh implementado la mayoria de cosas y la verdad que todo excelente. 10/10</p>
+        <img src="https://imgur.com/q9VSCgw.png" alt="@valen_god" class="shot" loading="lazy">
+      </div>
+      <div class="card pad testimonial">
+        <strong>@geroo1405</strong> <span class="small">(usuario de Discord)</span>
+        <p>por ahora todo perfecto, muy buena atención y muy bien protegida... vuelvo en 3 meses a actualizar</p>
+        <img src="https://imgur.com/oD0pisU.png" alt="@geroo1405" class="shot" loading="lazy">
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="kicker">FAQ</div>
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq">
+          <details>
+            <summary>¿Necesitan mi contraseña?</summary>
+            <p>No. <strong>No compartís contraseñas ni datos sensibles</strong>. Vos ejecutás los cambios; el asistente te guía.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tardo en quedar protegido?</summary>
+            <p>Con el Modo Exprés, podés quedar protegido en 10–30 minutos (12–15′ en la mayoría).</p>
+          </details>
+          <details>
+            <summary>¿Qué es el Shield Score™?</summary>
+            <p>Es un puntaje 0–100 basado en tu checklist. Con 90 o más tenés certificado y rol “Cuenta Blindada 90+”.</p>
+          </details>
+          <details>
+            <summary>¿Puedo usarlo en PC/Mac/Consola?</summary>
+            <p>Sí. Blindás tu cuenta Microsoft, que sirve para Java/Bedrock y consolas.</p>
+          </details>
+          <details>
+            <summary>¿Qué métodos de pago aceptan?</summary>
+            <p>Aceptamos PayPal y Mercado Pago (AR). Podés pagar con tarjetas de crédito y débito compatibles.</p>
+          </details>
+          <details>
+            <summary>¿Cómo funciona la garantía y el reembolso?</summary>
+            <p>Tenés 30 días “sin preguntas”. Condición: completar checklist y evidencias para tu Shield Score™.</p>
+          </details>
+          <details>
+            <summary>¿Y si ya me hackearon?</summary>
+            <p>Este pack no recupera cuentas robadas. Te sirve para blindar tu nueva cuenta y evitar perder otra.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footgrid">
+      <div>© 2025 CompletCraft™ — Seguridad para gamers. Programa de afiliados <span class="badge">7% comisión</span>.</div>
+      <div class="footlinks">
+        <a href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#garantia">Garantía &amp; Reembolsos</a>
+        <a href="file:///C:/Users/Guille/Downloads/index_2_updated%20(1).html#faq">FAQ</a>
+        <a href="https://eqstore.craftingstore.net/category/478186">Comprar</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Exit-intent Modal -->
+  <div class="modal hidden" id="exitModal" aria-hidden="true" style="display:none;">
+    <div class="backdrop" data-close="1" style="position:fixed; inset:0; background:rgba(0,0,0,.6);"></div>
+    <div class="content" style="position:relative; max-width:560px; width:92%; background:var(--card); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px; margin:0 16px;">
+      <h3 style="margin:0 0 8px 0; font-size:22px;">¿Te estás por ir?</h3>
+      <p>Podrías perder la oferta de <strong>$27</strong>; luego sube a <strong>$49</strong>.</p>
+      <p class="small">Precio vigente <strong>$27</strong> · precio regular <s>$49</s></p>
+      <div class="actions" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn primary" href="https://eqstore.craftingstore.net/category/478186">Sí, aprovechar ahora</a>
+        <button class="btn ghost" id="exitClose">No, gracias</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Smooth scroll para anchors internos
+    document.addEventListener('click', function(e){
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const target = document.querySelector(a.getAttribute('href'));
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      history.pushState(null, '', a.getAttribute('href'));
+    }, {passive:false});
+
+    // Exit-intent modal (muestra 1 vez por usuario)
+    (function(){
+      const modal = document.getElementById('exitModal');
+      if (!modal) return;
+      const CLOSE_SELECTORS = ['#exitClose', '.backdrop'];
+      let shown = localStorage.getItem('cc_exit_shown') === '1';
+      function show(){ if (shown) return; shown = true; localStorage.setItem('cc_exit_shown','1'); modal.style.display='flex'; modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); }
+      function hide(){ modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); modal.style.display='none'; }
+      CLOSE_SELECTORS.forEach(sel => { const el = modal.querySelector(sel); if (el) el.addEventListener('click', hide); });
+      document.addEventListener('mouseout', (e) => { const from = e.relatedTarget || e.toElement; if ((!from || from.nodeName === 'HTML') && e.clientY <= 0) show(); });
+      document.addEventListener('mouseleave', (e) => { if (e.clientY <= 0) show(); });
+    })();
+  </script>
+
+  <!-- Legal -->
+  <footer id="legal" style="padding:1.5rem 1rem;border-top:1px solid #eee;color:#333">
+    <p style="max-width:75ch;margin:0 auto">
+      <strong>Disclaimer:</strong> CompletCraft™ es un proyecto independiente y <strong>no está afiliado</strong> a Mojang/Microsoft.
+      El <strong>certificado</strong> es interno de CompletCraft™. “Minecraft” es una marca de Mojang AB. Usá contraseñas únicas y MFA.
+    </p>
+  </footer>
+
+
+</body></html>
